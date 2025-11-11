@@ -14,24 +14,28 @@ import { ArrowRight } from "lucide-react";
 const blogPosts = [
   {
     id: "1",
+    slug: "primeros-pasos-con-nextjs-14",
     title: "Primeros pasos con Next.js 14",
     description: "Una guía completa para iniciar tu primer proyecto con el App Router y las últimas funcionalidades de Next.js.",
     image: PlaceHolderImages.find(p => p.id === 'blog-post-1'),
   },
   {
     id: "2",
+    slug: "el-arte-del-diseno-minimalista",
     title: "El Arte del Diseño Minimalista",
     description: "Cómo 'menos es más' puede mejorar la experiencia de usuario y la estética de tus aplicaciones web.",
     image: PlaceHolderImages.find(p => p.id === 'blog-post-2'),
   },
   {
     id: "3",
+    slug: "desplegando-en-vercel-de-cero-a-heroe",
     title: "Desplegando en Vercel: De Cero a Héroe",
     description: "Aprende a desplegar tus aplicaciones Next.js en Vercel de forma rápida y eficiente, con consejos de optimización.",
     image: PlaceHolderImages.find(p => p.id === 'blog-post-3'),
   },
   {
     id: "4",
+    slug: "4-secretos-de-tu-computadora",
     title: "4 Secretos de tu Computadora que Cambiarán Cómo la Ves",
     description: "Desmitifica el funcionamiento interno de tu computadora y cambia para siempre la forma en que la ves con estos cuatro conceptos fundamentales.",
     image: PlaceHolderImages.find(p => p.id === 'blog-post-4'),
@@ -52,7 +56,7 @@ export function BlogSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <Link href="#" key={post.id}>
+            <Link href={`/blog/${post.slug}`} key={post.id}>
               <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 group">
                 {post.image && (
                   <div className="aspect-video overflow-hidden">
