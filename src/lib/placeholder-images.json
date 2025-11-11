@@ -3,8 +3,8 @@
     {
       "id": "hero-background",
       "description": "Abstract background for hero section",
-      "imageUrl": "https://images.unsplash.com/photo-1486551937199-baf066858de7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhYnN0cmFjdCUyMHRleHR1cmV8ZW58MHx8fHwxNzYyNzk5NDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract texture"
+      "imageUrl": "https://images.unsplash.com/photo-1533134486753-c833f0ed4866?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb2xpZCUyMGNvbG9yJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3MjE4MzU4MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "solid color background"
     },
     {
       "id": "blog-post-1",
