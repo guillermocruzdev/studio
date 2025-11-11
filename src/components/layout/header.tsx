@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Feather } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -9,15 +10,43 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "../theme-toggle";
 
 const navLinks = [
-  { href: "#home", label: "Inicio" },
-  { href: "#blog", label: "Blog" },
-  { href: "#projects", label: "Proyectos" },
-  { href: "#contact", label: "Contacto" },
+  { href: "/", label: "Inicio" },
+  { href: "/#blog", label: "Blog" },
+  { href: "/#projects", label: "Proyectos" },
+  { href: "/#contact", label: "Contacto" },
 ];
+
+const pageSpecificLinks = {
+  "/": [
+    { href: "#home", label: "Inicio" },
+    { href: "#blog", label: "Blog" },
+    { href: "#projects", label: "Proyectos" },
+    { href: "#contact", label: "Contacto" },
+  ],
+  "/blog": [
+    { href: "/", label: "Inicio" },
+    { href: "/#projects", label: "Proyectos" },
+    { href: "/#contact", label: "Contacto" },
+  ],
+  "/projects": [
+    { href: "/", label: "Inicio" },
+    { href: "/#blog", label: "Blog" },
+    { href: "/#contact", label: "Contacto" },
+  ],
+};
+
+const getNavLinks = (pathname: string) => {
+  if (pathname.startsWith('/blog/')) {
+    return pageSpecificLinks['/blog'];
+  }
+  return (pageSpecificLinks as any)[pathname] || navLinks;
+};
 
 export function Header() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const currentNavLinks = getNavLinks(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,13 +66,13 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="#home" className="flex items-center gap-2 font-headline text-2xl">
+        <Link href="/" className="flex items-center gap-2 font-headline text-2xl" onClick={pathname === '/' ? undefined : closeMobileMenu}>
           <Feather className="h-6 w-6 text-primary" />
           <span>OnePageFolio</span>
         </Link>
         <div className="flex items-center gap-4">
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
+            {currentNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -63,11 +92,11 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-6 p-6">
-                  <Link href="#home" className="flex items-center gap-2 font-headline text-2xl mb-4" onClick={closeMobileMenu}>
+                  <Link href="/" className="flex items-center gap-2 font-headline text-2xl mb-4" onClick={closeMobileMenu}>
                       <Feather className="h-6 w-6 text-primary" />
                       <span>OnePageFolio</span>
                   </Link>
-                  {navLinks.map((link) => (
+                  {currentNavLinks.map((link) => (
                       <Link
                       key={link.href}
                       href={link.href}

@@ -16,10 +16,10 @@ import { projects } from "@/content/projects";
 
 export default function ProjectsListPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-secondary/50">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow pt-24">
-        <section id="projects" className="py-20 sm:py-32">
+        <section id="projects" className="py-20 sm:py-32 bg-secondary/50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h1 className="font-headline text-4xl md:text-5xl font-bold tracking-tight">
