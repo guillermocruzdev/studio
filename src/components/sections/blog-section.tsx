@@ -18,7 +18,7 @@ export function BlogSection() {
   return (
     <section id="blog" className="py-20 sm:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tight">
             Mi Blog Personal
           </h2>
@@ -28,10 +28,10 @@ export function BlogSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {latestPosts.map((post) => (
-            <Link href={`/blog/${post.slug}`} key={post.id}>
-              <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 group">
+            <Link href={`/blog/${post.slug}`} key={post.id} className="group">
+              <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out group-hover:shadow-xl group-hover:-translate-y-2 border-transparent hover:border-primary/50">
                 {post.image && (
-                  <div className="aspect-video overflow-hidden">
+                  <div className="aspect-video overflow-hidden rounded-t-lg">
                     <Image
                       src={post.image.imageUrl}
                       alt={post.image.description}
@@ -43,14 +43,14 @@ export function BlogSection() {
                   </div>
                 )}
                 <CardHeader>
-                  <CardTitle className="font-headline text-2xl">{post.title}</CardTitle>
+                  <CardTitle className="font-headline text-2xl group-hover:text-primary transition-colors">{post.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription>{post.description}</CardDescription>
                 </CardContent>
                 <CardFooter>
-                  <span className="text-sm font-semibold text-accent group-hover:text-primary transition-colors duration-300">
-                    Leer más <ArrowRight className="inline-block ml-1 h-4 w-4" />
+                  <span className="text-sm font-semibold text-primary">
+                    Leer más <ArrowRight className="inline-block ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </CardFooter>
               </Card>
@@ -58,7 +58,7 @@ export function BlogSection() {
           ))}
         </div>
         {blogPosts.length > 6 && (
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <Button asChild variant="outline">
               <Link href="/blog">
                 Ver todas las entradas

@@ -8,7 +8,7 @@ export function HeroSection() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
 
   return (
-    <section id="home" className="relative h-screen w-full">
+    <section id="home" className="relative h-[90vh] min-h-[700px] w-full flex items-center justify-center">
       {heroImage && (
         <Image
           src={heroImage.imageUrl}
@@ -19,17 +19,17 @@ export function HeroSection() {
           data-ai-hint={heroImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/50 to-transparent" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
         <div className="max-w-3xl">
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-tight text-foreground shadow-sm">
+          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-tight text-foreground">
             Juan Pérez
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/90 max-w-xl mx-auto">
             Desarrollador de Software y escritor apasionado por la tecnología, creando soluciones elegantes a problemas complejos.
           </p>
           <div className="mt-10">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild size="lg">
               <Link href="#projects">
                 Ver mis proyectos
                 <ArrowDown className="ml-2 h-5 w-5" />

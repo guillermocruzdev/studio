@@ -6,7 +6,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-20 sm:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tight">
             Hablemos
           </h2>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,8 +20,11 @@ export function ContactForm() {
   };
 
   return (
-    <Card>
-      <CardContent className="p-6">
+    <Card className="bg-card">
+      <CardHeader>
+        <CardTitle>Formulario de Contacto</CardTitle>
+      </CardHeader>
+      <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="name">Nombre</Label>
@@ -35,7 +38,7 @@ export function ContactForm() {
             <Label htmlFor="message">Mensaje</Label>
             <Textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." rows={5} required />
           </div>
-          <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+          <Button type="submit" className="w-full">
             Enviar Mensaje
           </Button>
         </form>

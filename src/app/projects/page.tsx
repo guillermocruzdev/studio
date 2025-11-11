@@ -16,12 +16,12 @@ import { projects } from "@/content/projects";
 
 export default function ProjectsListPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-secondary">
+    <div className="flex flex-col min-h-screen bg-secondary/50">
       <Header />
       <main className="flex-grow pt-24">
         <section id="projects" className="py-20 sm:py-32">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="max-w-3xl mx-auto text-center mb-16">
               <h1 className="font-headline text-4xl md:text-5xl font-bold tracking-tight">
                 Mis Proyectos
               </h1>
@@ -31,7 +31,7 @@ export default function ProjectsListPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
-                <Card key={project.id} className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 group">
+                <Card key={project.id} className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 group bg-card">
                   {project.image && (
                     <div className="aspect-video overflow-hidden">
                       <Image

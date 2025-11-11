@@ -1,4 +1,3 @@
-
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import type { BlogPost } from "@/types/blog";
 import React from 'react';
@@ -10,7 +9,7 @@ export const post: BlogPost = {
   description: "Desmitifica el funcionamiento interno de tu computadora y cambia para siempre la forma en que la ves con estos cuatro conceptos fundamentales.",
   image: PlaceHolderImages.find(p => p.id === 'blog-post-4'),
   content: (
-    <div className="prose prose-lg lg:prose-xl max-w-none dark:prose-invert">
+    <>
       <p>Usamos nuestras computadoras todos los días, pero ¿alguna vez te has detenido a pensar cómo una máquina tan compleja obedece nuestras órdenes? Puede ser abrumador ver una lista de especificaciones técnicas y no saber qué significa realmente. La buena noticia es que no necesitas ser un ingeniero para comprender su funcionamiento. Este artículo te revelará cuatro conceptos fundamentales que desmitificarán el funcionamiento interno de cualquier computadora y cambiarán para siempre la forma en que la ves.</p>
 
       <h2 className="font-headline text-3xl mt-12 mb-4">1. Todo es un simple "Sí" o "No": El mundo binario</h2>
@@ -48,6 +47,6 @@ export const post: BlogPost = {
       <h2 className="font-headline text-3xl mt-12 mb-4">Conclusión</h2>
       <p>Ahora que el misterio ha sido revelado, ya no eres un simple usuario, sino alguien que entiende los pilares de la computación moderna. Comprender la lógica binaria, la diferencia entre RAM y disco duro, las opciones de almacenamiento y cómo leer el modelo de un procesador transforma la computadora de una caja mágica a una herramienta comprensible. Estos principios te empoderan para tomar mejores decisiones y usar la tecnología de una forma más consciente.</p>
       <p>Ahora que entiendes la lógica detrás del hardware, ¿qué es lo próximo que te gustaría aprender sobre el mundo digital?</p>
-    </div>
+    </>
   )
 };

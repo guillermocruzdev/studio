@@ -9,5 +9,5 @@ export const post: BlogPost = {
     title: "Primeros pasos con Next.js 14",
     description: "Una guía completa para iniciar tu primer proyecto con el App Router y las últimas funcionalidades de Next.js.",
     image: PlaceHolderImages.find(p => p.id === 'blog-post-1'),
-    content: <div className="prose prose-lg max-w-none"><p>Contenido del artículo sobre Next.js 14 próximamente...</p></div>
+    content: <p>Contenido del artículo sobre Next.js 14 próximamente...</p>
 };

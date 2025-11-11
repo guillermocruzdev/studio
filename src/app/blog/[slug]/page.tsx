@@ -19,7 +19,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <main className="flex-grow pt-24">
         <article className="container mx-auto px-4 md:px-6 py-12 md:py-16">
           <div className="max-w-3xl mx-auto">
-            <Link href="/#blog" className="inline-flex items-center gap-2 text-sm text-accent hover:text-primary mb-8">
+            <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-primary hover:underline mb-8">
               <ArrowLeft className="h-4 w-4" />
               Volver al blog
             </Link>
@@ -39,7 +39,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </div>
             )}
             
-            <div className="mt-8 text-foreground/90 space-y-6">
+            <div className="prose prose-lg lg:prose-xl max-w-none dark:prose-invert mx-auto mt-8">
                 {post.content}
             </div>
           </div>
