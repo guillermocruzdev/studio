@@ -37,10 +37,18 @@ const projects = [
     githubUrl: "#",
     demoUrl: "#",
   },
+  {
+    id: "4",
+    name: "AI Studio Project",
+    description: "Un proyecto de IA que muestra las capacidades de desarrollo con herramientas modernas de IA.",
+    image: PlaceHolderImages.find(p => p.id === 'project-4'),
+    githubUrl: "https://github.com/guillermocruzdev/studio",
+    demoUrl: "#",
+  },
 ];
 
 export function ProjectsSection() {
-  const latestProjects = projects.slice(-6).reverse();
+  const latestProjects = projects.sort((a, b) => parseInt(b.id) - parseInt(a.id)).slice(0, 6);
 
   return (
     <section id="projects" className="py-20 sm:py-32 bg-secondary">

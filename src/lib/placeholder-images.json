@@ -47,6 +47,12 @@
       "description": "Third project image",
       "imageUrl": "https://images.unsplash.com/photo-1708939582011-ddbd2ff61b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3ZWJzaXRlJTIwaG9tZXBhZ2V8ZW58MHx8fHwxNzYyODIwMDc2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "website homepage"
+    },
+    {
+      "id": "project-4",
+      "description": "Fourth project image",
+      "imageUrl": "https://images.unsplash.com/photo-1760952851538-17a59f691efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBSSUyMHByb2plY3R8ZW58MHx8fHwxNzYyODIwODQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "AI project"
     }
   ]
 }
