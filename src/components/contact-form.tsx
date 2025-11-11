@@ -1,22 +1,53 @@
 "use client";
 
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+
+const formSchema = z.object({
+  name: z.string().min(2, {
+    message: "El nombre debe tener al menos 2 caracteres.",
+  }),
+  email: z.string().email({
+    message: "Por favor, introduce una dirección de correo electrónico válida.",
+  }),
+  message: z.string().min(10, {
+    message: "El mensaje debe tener al menos 10 caracteres.",
+  }),
+});
 
 export function ContactForm() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Here you would typically handle form submission,
-    // e.g., send data to an API endpoint.
-    // For this example, we'll just log to the console.
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.log("Form submitted:", data);
-    alert("Gracias por tu mensaje. El formulario aún no está conectado, pero ¡gracias por probar!");
-    e.currentTarget.reset();
+  const { toast } = useToast();
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    const subject = encodeURIComponent(`Nuevo mensaje de ${values.name} desde tu portafolio`);
+    const body = encodeURIComponent(`${values.message}\n\nDesde: ${values.name} <${values.email}>`);
+    const mailtoLink = `mailto:guillermoacp93@gmail.com?subject=${subject}&body=${body}`;
+    
+    window.location.href = mailtoLink;
+    
+    toast({
+      title: "¡Gracias por tu mensaje!",
+      description: "Se ha abierto tu cliente de correo para que puedas enviarlo.",
+    });
+
+    form.reset();
   };
 
   return (
@@ -25,23 +56,56 @@ export function ContactForm() {
         <CardTitle>Formulario de Contacto</CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="name">Nombre</Label>
-            <Input id="name" name="name" placeholder="Tu nombre completo" required />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" name="email" type="email" placeholder="tu@email.com" required />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="message">Mensaje</Label>
-            <Textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." rows={5} required />
-          </div>
-          <Button type="submit" className="w-full">
-            Enviar Mensaje
-          </Button>
-        </form>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nombre</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Tu nombre completo" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="tu@email.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Mensaje</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Escribe tu mensaje aquí..."
+                      rows={5}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="w-full">
+              Enviar Mensaje
+            </Button>
+          </form>
+        </Form>
       </CardContent>
     </Card>
   );
