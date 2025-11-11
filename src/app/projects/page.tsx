@@ -9,49 +9,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Github, ExternalLink } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-
-const projects = [
-  {
-    id: "1",
-    name: "Panel de Administración",
-    description: "Un completo panel de administración con analíticas, gestión de usuarios y reportes, construido con Next.js y ShadCN/UI.",
-    image: PlaceHolderImages.find(p => p.id === 'project-1'),
-    githubUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "2",
-    name: "App Móvil de Tareas",
-    description: "Una aplicación móvil multiplataforma para la gestión de tareas diarias, desarrollada con React Native.",
-    image: PlaceHolderImages.find(p => p.id === 'project-2'),
-    githubUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "3",
-    name: "Landing Page para Startup",
-    description: "Diseño y desarrollo de una landing page moderna y responsiva para una startup de tecnología, optimizada para conversiones.",
-    image: PlaceHolderImages.find(p => p.id === 'project-3'),
-    githubUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "4",
-    name: "AI Studio Project",
-    description: "Un proyecto de IA que muestra las capacidades de desarrollo con herramientas modernas de IA.",
-    image: PlaceHolderImages.find(p => p.id === 'project-4'),
-    githubUrl: "https://github.com/guillermocruzdev/studio",
-    demoUrl: "#",
-  },
-];
+import { projects } from "@/lib/projects-data";
 
 export default function ProjectsListPage() {
-  const sortedProjects = projects.sort((a, b) => parseInt(b.id) - parseInt(a.id));
-
   return (
     <div className="flex flex-col min-h-screen bg-secondary">
       <Header />
@@ -67,7 +30,7 @@ export default function ProjectsListPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {sortedProjects.map((project) => (
+              {projects.map((project) => (
                 <Card key={project.id} className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 group">
                   {project.image && (
                     <div className="aspect-video overflow-hidden">

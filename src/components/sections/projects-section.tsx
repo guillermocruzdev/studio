@@ -9,46 +9,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
-
-const projects = [
-  {
-    id: "1",
-    name: "Panel de Administración",
-    description: "Un completo panel de administración con analíticas, gestión de usuarios y reportes, construido con Next.js y ShadCN/UI.",
-    image: PlaceHolderImages.find(p => p.id === 'project-1'),
-    githubUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "2",
-    name: "App Móvil de Tareas",
-    description: "Una aplicación móvil multiplataforma para la gestión de tareas diarias, desarrollada con React Native.",
-    image: PlaceHolderImages.find(p => p.id === 'project-2'),
-    githubUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "3",
-    name: "Landing Page para Startup",
-    description: "Diseño y desarrollo de una landing page moderna y responsiva para una startup de tecnología, optimizada para conversiones.",
-    image: PlaceHolderImages.find(p => p.id === 'project-3'),
-    githubUrl: "#",
-    demoUrl: "#",
-  },
-  {
-    id: "4",
-    name: "AI Studio Project",
-    description: "Un proyecto de IA que muestra las capacidades de desarrollo con herramientas modernas de IA.",
-    image: PlaceHolderImages.find(p => p.id === 'project-4'),
-    githubUrl: "https://github.com/guillermocruzdev/studio",
-    demoUrl: "#",
-  },
-];
+import { projects } from "@/lib/projects-data";
 
 export function ProjectsSection() {
-  const latestProjects = projects.sort((a, b) => parseInt(b.id) - parseInt(a.id)).slice(0, 6);
+  const latestProjects = projects.slice(0, 6);
 
   return (
     <section id="projects" className="py-20 sm:py-32 bg-secondary">
