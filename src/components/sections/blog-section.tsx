@@ -30,6 +30,12 @@ const blogPosts = [
     description: "Aprende a desplegar tus aplicaciones Next.js en Vercel de forma rápida y eficiente, con consejos de optimización.",
     image: PlaceHolderImages.find(p => p.id === 'blog-post-3'),
   },
+  {
+    id: "4",
+    title: "4 Secretos de tu Computadora que Cambiarán Cómo la Ves",
+    description: "Desmitifica el funcionamiento interno de tu computadora y cambia para siempre la forma en que la ves con estos cuatro conceptos fundamentales.",
+    image: PlaceHolderImages.find(p => p.id === 'blog-post-4'),
+  },
 ];
 
 export function BlogSection() {
