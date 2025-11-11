@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
 
 const projects = [
   {
@@ -40,6 +40,8 @@ const projects = [
 ];
 
 export function ProjectsSection() {
+  const latestProjects = projects.slice(-6).reverse();
+
   return (
     <section id="projects" className="py-20 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
@@ -52,7 +54,7 @@ export function ProjectsSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {latestProjects.map((project) => (
             <Card key={project.id} className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 group">
               {project.image && (
                 <div className="aspect-video overflow-hidden">
@@ -89,6 +91,16 @@ export function ProjectsSection() {
             </Card>
           ))}
         </div>
+        {projects.length > 6 && (
+          <div className="mt-12 text-center">
+            <Button asChild variant="outline">
+              <Link href="/projects">
+                Ver todos los proyectos
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

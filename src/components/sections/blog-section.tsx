@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 const blogPosts = [
   {
@@ -43,6 +44,8 @@ const blogPosts = [
 ];
 
 export function BlogSection() {
+  const latestPosts = blogPosts.slice(-6).reverse();
+
   return (
     <section id="blog" className="py-20 sm:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -55,7 +58,7 @@ export function BlogSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
+          {latestPosts.map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.id}>
               <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 group">
                 {post.image && (
@@ -85,6 +88,16 @@ export function BlogSection() {
             </Link>
           ))}
         </div>
+        {blogPosts.length > 6 && (
+          <div className="mt-12 text-center">
+            <Button asChild variant="outline">
+              <Link href="/blog">
+                Ver todas las entradas
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
