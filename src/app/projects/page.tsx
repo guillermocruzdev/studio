@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { projects } from "@/lib/projects-data";
+import { projects } from "@/content/projects";
 
 export default function ProjectsListPage() {
   return (

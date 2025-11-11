@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { blogPosts } from "@/lib/blog-data.tsx";
+import { blogPosts } from "@/content/blog";
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = blogPosts.find(p => p.slug === params.slug);

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
-import { blogPosts } from "@/lib/blog-data.tsx";
+import { blogPosts } from "@/content/blog";
 
 export function BlogSection() {
   const latestPosts = blogPosts.slice(0, 6);

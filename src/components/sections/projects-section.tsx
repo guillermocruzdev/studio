@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
-import { projects } from "@/lib/projects-data";
+import { projects } from "@/content/projects";
 
 export function ProjectsSection() {
   const latestProjects = projects.slice(0, 6);

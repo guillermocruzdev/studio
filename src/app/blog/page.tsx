@@ -11,7 +11,7 @@ import {
 import { ArrowRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { blogPosts } from "@/lib/blog-data.tsx";
+import { blogPosts } from "@/content/blog";
 
 export default function BlogListPage() {
   return (
